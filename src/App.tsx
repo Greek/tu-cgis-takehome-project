@@ -46,7 +46,7 @@ function App() {
 
   return (
     <>
-      <Navbar userName={combinedName} />
+      <Navbar />
       <div className="container">
         <div className="content">
           <div>

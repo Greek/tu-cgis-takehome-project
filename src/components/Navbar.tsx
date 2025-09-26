@@ -1,8 +1,8 @@
-export function Navbar(props: { userName: string }) {
+export function Navbar() {
   return (
     <nav className="navbar">
       <p>Personal Profile Dashboard</p>
-      <p>{props.userName}</p>
+      <p>Andreas Papacharalampous</p>
     </nav>
   );
 }

@@ -5,7 +5,7 @@ import type { Person } from "./types/Person";
 import { Navbar } from "./components/Navbar";
 
 function App() {
-  const { data, error, refetch, isRefetching, isLoading, isSuccess } =
+  const { data, error, refetch, isLoading } =
     useQuery<{ results: Person[] }>({
       queryKey: ["profileData"],
       queryFn: () =>

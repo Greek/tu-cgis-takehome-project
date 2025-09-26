@@ -28,7 +28,7 @@ function App() {
     },
     {
       title: "Address",
-      value: combinedAddress + `\n${profile.location.state}, \n
+      value: combinedAddress + `
                  ${profile.location.country} ${profile.location.postcode}`
     },
     {
@@ -51,12 +51,12 @@ function App() {
       <div className="container">
         <div className="content">
           <div>
-            <Card>
-              <img src={profile.picture.large} alt="" />
+            <Card centered>
+                <img src={profile.picture.large} alt="" />
             </Card>
           </div>
           <div>
-            <Card>
+            <Card width="fixed">
               {fields.map((field) => (
                 <span key={field.title} >
                   <h4>{field.title}</h4>

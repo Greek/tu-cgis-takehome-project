@@ -19,7 +19,31 @@ function App() {
   // grab the first profile from the list
   const profile = data.results[0];
   const combinedName = `${profile.name.first} ${profile.name.last}`;
-  const combinedAddress = `${profile.location.street.number} ${profile.location.street.name}, ${profile.location.city}`;
+  const combinedAddress = `${profile.location.street.number} ${profile.location.street.name}, ${profile.location.city},`;
+
+  const fields = [
+    {
+      title: "User Name",
+      value: combinedName,
+    },
+    {
+      title: "Address",
+      value: combinedAddress + `\n${profile.location.state}, \n
+                 ${profile.location.country} ${profile.location.postcode}`
+    },
+    {
+      title: "Phone Number",
+      value: profile.phone,
+    },
+    {
+      title: "Email",
+      value: profile.email
+    },
+    {
+      title: "Date of Birth",
+      value: new Date(profile.dob.date).toLocaleDateString(),
+    },
+  ];
 
   return (
     <>
@@ -33,20 +57,12 @@ function App() {
           </div>
           <div>
             <Card>
-              <h4>User Name</h4>
-              <p>{combinedName}</p>
-              <h4>Address</h4>
-              <p>{combinedAddress}</p>
-              <p>
-                {profile.location.state}, {profile.location.country}{" "}
-                {profile.location.postcode}
-              </p>
-              <h4>Phone Number</h4>
-              <p>{profile.phone}</p>
-              <h4>Email</h4>
-              <p>{profile.email}</p>
-              <h4>Date of Birth</h4>
-              {new Date(profile.dob.date).toLocaleDateString()}
+              {fields.map((field) => (
+                <span key={field.title} >
+                  <h4>{field.title}</h4>
+                  <p>{field.value}</p>
+                </span>
+              ))}
             </Card>
           </div>
         </div>

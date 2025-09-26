@@ -4,3 +4,29 @@
   max-width: 1080px;
   min-height: 100vh;
 }
+
+.content {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+
+.card {
+  white-space: normal;
+  border: 2px solid #000;
+  border-radius: 12px;
+  padding: 12px;
+
+  h4 {
+    margin: 0;
+    margin-top: 12px;
+  }
+
+  h4:first-child {
+    margin-top: 0;
+  }
+
+  p {
+    margin: 0;
+  }
+}

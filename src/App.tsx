@@ -51,7 +51,7 @@ function App() {
         <div className="content">
           <div>
             <Card centered>
-                <img src={profile.picture.large} alt="" />
+                <img className="rounded" src={profile.picture.large} width={200} height={200} alt="" />
             </Card>
             <button onClick={() => refetch()}>Fetch New User</button>
           </div>

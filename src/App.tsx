@@ -54,6 +54,7 @@ function App() {
             <Card centered>
                 <img src={profile.picture.large} alt="" />
             </Card>
+            <button onClick={() => refetch()}>Fetch New User</button>
           </div>
           <div>
             <Card width="fixed">

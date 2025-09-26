@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import "./App.css";
-import { Card } from "./components/Card";
+import { Card } from "./components/card";
 import type { Person } from "./types/Person";
 import { Navbar } from "./components/Navbar";
 

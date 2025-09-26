@@ -1,3 +1,5 @@
+import "./styles.css"
+
 export function Card(props: {
   width?: "fixed" | "wide";
   centered?: boolean;

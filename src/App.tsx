@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import "./App.css";
 import { Card } from "./components/Card";
 import type { Person } from "./types/Person";
+import { Navbar } from "./components/Navbar";
 
 function App() {
   const { data, error, refetch, isRefetching, isLoading, isSuccess } =
@@ -22,6 +23,7 @@ function App() {
 
   return (
     <>
+      <Navbar userName={combinedName} />
       <div className="container">
         <div className="content">
           <div>

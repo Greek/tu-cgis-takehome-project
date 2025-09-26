@@ -23,10 +23,21 @@
 }
 
 .card {
+  max-width: 20em;
   white-space: normal;
   border: 2px solid #000;
   border-radius: 12px;
   padding: 12px;
+  overflow-wrap: break-word;
+
+  &.fixed {
+    width: 14em;
+  }
+  
+  &.centered {
+    display: flex;
+    justify-items: center;
+  }
 
   h4 {
     margin: 0;

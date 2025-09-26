@@ -15,7 +15,6 @@
   min-height: 100vh;
 }
 
-
 .content {
   display: flex;
   flex-direction: row;
@@ -23,32 +22,24 @@
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
   max-width: 20em;
-  white-space: normal;
   border: 2px solid #000;
   border-radius: 12px;
   padding: 12px;
   overflow-wrap: break-word;
 
   &.fixed {
-    width: 14em;
+    width: 15em;
   }
-  
+
   &.centered {
-    display: flex;
     justify-items: center;
   }
 
-  h4 {
-    margin: 0;
-    margin-top: 12px;
-  }
-
-  h4:first-child {
-    margin-top: 0;
-  }
-
-  p {
+  h4, p {
     margin: 0;
   }
 }

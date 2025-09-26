@@ -49,7 +49,7 @@ function App() {
       <Navbar />
       <div className="container">
         <div className="content">
-          <div>
+          <div className="picture-display">
             <Card centered>
                 <img className="rounded" src={profile.picture.large} width={200} height={200} alt="" />
             </Card>

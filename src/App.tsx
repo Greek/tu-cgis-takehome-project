@@ -2,7 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import "./App.css";
 import { Card } from "./components/card";
 import type { Person } from "./types/Person";
-import { Navbar } from "./components/Navbar";
+import { Navbar } from "./components/navbar";
 import { useEffect, useState } from "react";
 
 function App() {

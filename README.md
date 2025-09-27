@@ -4,7 +4,7 @@ This is a Personal Profile Dashboard built as a take-home project for OTS' CGIS 
 
 ## Demo
 
-<video src="./public/demo.mp4" controls></video>
+https://github.com/user-attachments/assets/a4afdfb7-a5dc-437f-8e41-3be695dcc36a
 
 ## How to run locally
 

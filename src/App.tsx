@@ -16,7 +16,12 @@ function App() {
 
   // add listener for changes in screen width to DOM
   useEffect(() => {
-    window.matchMedia("(max-width: 640px)").addEventListener('change', event => setIsMobile(event.matches))
+    const mobileState = window.matchMedia("(max-width: 640px)");
+    const handleChange = (ev: MediaQueryListEvent) => setIsMobile(ev.matches)
+    setIsMobile(mobileState.matches);
+    
+    mobileState.addEventListener('change', handleChange);
+    return () => mobileState.removeEventListener('change', handleChange);
   }, [])
 
   if (isLoading) return <p>Loading...</p>;
@@ -57,7 +62,7 @@ function App() {
       <div className="container">
         <div className="content">
           <div className="picture-display">
-            <img className="picture" src={profile.picture.large} width={200} height={200} alt="" />
+            <img className="picture" src={profile.picture.large} width={240} height={240} alt="" />
             {!isMobile && <button className="btn-refetch" onClick={() => refetch()}>Fetch New User</button>}
           </div>
           <div className="bio">
@@ -70,7 +75,7 @@ function App() {
               ))}
             </Card>
           </div>
-          {isMobile && <button className="btn-refetch" onClick={() => refetch()}>Fetch New User</button>}
+          {isMobile && <button className="btn-refetch mobile" onClick={() => refetch()}>Fetch New User</button>}
         </div>
       </div>
     </>

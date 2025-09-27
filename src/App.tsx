@@ -48,7 +48,7 @@ function App() {
   // grab the first profile from the list
   const profile = data.results[0];
   const combinedName = `${profile.name.first} ${profile.name.last}`;
-  const combinedAddress = `${profile.location.street.number} ${profile.location.street.name}, ${profile.location.city}, ${profile.location.state} ${profile.location.postcode}`;
+  const combinedAddress = `${profile.location.street.number} ${profile.location.street.name}, ${profile.location.city}, ${profile.location.state}, ${profile.location.country} ${profile.location.postcode}`;
 
   const fields = [
     {

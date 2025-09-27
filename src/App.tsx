@@ -12,6 +12,7 @@ function App() {
       queryKey: ["profileData"],
       queryFn: () =>
         fetch("https://randomuser.me/api/").then((res) => res.json()),
+      refetchOnWindowFocus: false,
     });
 
   // add listener for changes in screen width to DOM

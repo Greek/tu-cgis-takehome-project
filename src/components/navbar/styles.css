@@ -1,0 +1,11 @@
+.navbar {
+  display: flex;
+  padding: 10px 20px;
+  border-bottom: 2px solid #3e3e3e;
+  margin-bottom: 24px;
+  justify-content: space-between;
+
+  .right {
+    text-align: right;
+  }
+}

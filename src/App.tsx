@@ -7,27 +7,43 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const { data, error, refetch, isLoading, isRefetching } =
-    useQuery<{ results: Person[] }>({
-      queryKey: ["profileData"],
-      queryFn: () =>
-        fetch("https://randomuser.me/api/").then((res) => res.json()),
-      refetchOnWindowFocus: false,
-    });
+  const { data, error, refetch, isLoading, isRefetching } = useQuery<{
+    results: Person[];
+  }>({
+    queryKey: ["profileData"],
+    queryFn: () =>
+      fetch("https://randomuser.me/api/").then((res) => res.json()),
+    refetchOnWindowFocus: false,
+  });
 
   // add listener for changes in screen width to DOM
   useEffect(() => {
     const mobileState = window.matchMedia("(max-width: 640px)");
-    const handleChange = (ev: MediaQueryListEvent) => setIsMobile(ev.matches)
+    const handleChange = (ev: MediaQueryListEvent) => setIsMobile(ev.matches);
     setIsMobile(mobileState.matches);
-    
-    mobileState.addEventListener('change', handleChange);
-    return () => mobileState.removeEventListener('change', handleChange);
-  }, [])
 
-  if (isLoading) return ( <><Navbar /><div className="container"><h2>Loading...</h2></div></>);
+    mobileState.addEventListener("change", handleChange);
+    return () => mobileState.removeEventListener("change", handleChange);
+  }, []);
+
+  if (isLoading)
+    return (
+      <>
+        <Navbar />
+        <div className="container">
+          <h2>Loading...</h2>
+        </div>
+      </>
+    );
   if (error || !data)
-    return (<><Navbar /><div className="container"><h2>An error occurred, try getting profile again?</h2></div></>);
+    return (
+      <>
+        <Navbar />
+        <div className="container">
+          <h2>An error occurred, try getting profile again?</h2>
+        </div>
+      </>
+    );
 
   // grab the first profile from the list
   const profile = data.results[0];
@@ -41,7 +57,7 @@ function App() {
     },
     {
       title: "Address",
-      value: combinedAddress
+      value: combinedAddress,
     },
     {
       title: "Phone Number",
@@ -49,7 +65,7 @@ function App() {
     },
     {
       title: "Email",
-      value: profile.email
+      value: profile.email,
     },
     {
       title: "Date of Birth",
@@ -63,20 +79,42 @@ function App() {
       <div className="container">
         <div className="content">
           <div className="picture-display">
-            <img className="picture" src={profile.picture.large} width={240} height={240} alt="" />
-            {!isMobile && <button className="btn-refetch" disabled={isRefetching} onClick={() => refetch()}>Fetch New User</button>}
+            <img
+              className="picture"
+              src={profile.picture.large}
+              width={240}
+              height={240}
+              alt=""
+            />
+            {!isMobile && (
+              <button
+                className="btn-refetch"
+                disabled={isRefetching}
+                onClick={() => refetch()}
+              >
+                Fetch New User
+              </button>
+            )}
           </div>
           <div className="bio">
             <Card width="fixed">
               {fields.map((field) => (
-                <span key={field.title} >
+                <span key={field.title}>
                   <h4>{field.title}</h4>
                   <p>{field.value}</p>
                 </span>
               ))}
             </Card>
           </div>
-          {isMobile && <button className="btn-refetch mobile" disabled={isRefetching} onClick={() => refetch()}>Fetch New User</button>}
+          {isMobile && (
+            <button
+              className="btn-refetch mobile"
+              disabled={isRefetching}
+              onClick={() => refetch()}
+            >
+              Fetch New User
+            </button>
+          )}
         </div>
       </div>
     </>

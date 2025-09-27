@@ -1,4 +1,4 @@
-import "./styles.css"
+import "./styles.css";
 
 export function Card(props: {
   width?: "fixed" | "wide";
@@ -6,8 +6,12 @@ export function Card(props: {
   children: React.ReactNode;
 }) {
   return (
-    <div className={`card ${props.width ?? "wide"} ${props.centered ? "centered" : ""}`}>
+    <div
+      className={`card ${props.width ?? "wide"} ${
+        props.centered ? "centered" : ""
+      }`}
+    >
       {props.children}
-      </div>
+    </div>
   );
 }

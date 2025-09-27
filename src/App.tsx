@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const { data, error, refetch, isLoading } =
+  const { data, error, refetch, isLoading, isRefetching } =
     useQuery<{ results: Person[] }>({
       queryKey: ["profileData"],
       queryFn: () =>
@@ -25,9 +25,9 @@ function App() {
     return () => mobileState.removeEventListener('change', handleChange);
   }, [])
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return ( <><Navbar /><div className="container"><h2>Loading...</h2></div></>);
   if (error || !data)
-    return <p>An error occurred, try getting profile again?</p>;
+    return (<><Navbar /><div className="container"><h2>An error occurred, try getting profile again?</h2></div></>);
 
   // grab the first profile from the list
   const profile = data.results[0];
@@ -64,7 +64,7 @@ function App() {
         <div className="content">
           <div className="picture-display">
             <img className="picture" src={profile.picture.large} width={240} height={240} alt="" />
-            {!isMobile && <button className="btn-refetch" onClick={() => refetch()}>Fetch New User</button>}
+            {!isMobile && <button className="btn-refetch" disabled={isRefetching} onClick={() => refetch()}>Fetch New User</button>}
           </div>
           <div className="bio">
             <Card width="fixed">
@@ -76,7 +76,7 @@ function App() {
               ))}
             </Card>
           </div>
-          {isMobile && <button className="btn-refetch mobile" onClick={() => refetch()}>Fetch New User</button>}
+          {isMobile && <button className="btn-refetch mobile" disabled={isRefetching} onClick={() => refetch()}>Fetch New User</button>}
         </div>
       </div>
     </>

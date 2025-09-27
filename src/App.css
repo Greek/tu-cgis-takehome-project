@@ -17,11 +17,12 @@
 .content {
   display: flex;
   flex-direction: row;
+  height: 24em;
   gap: 32px;
-}
 
-.rounded {
-  border-radius: 12px;
+  @media (max-width: 640px) {
+   flex-direction: column;
+  }
 }
 
 .picture-display {
@@ -29,8 +30,16 @@
   flex-direction: column;
   justify-content: space-between;
   height: max-height;
+}
 
-  button {
-    height: 15px;
-  }
+.bio {
+  display: flex;
+}
+
+.picture { 
+  border-radius: 12px;
+}
+
+button.btn-refetch {
+  height: 50px;
 }

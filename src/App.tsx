@@ -3,14 +3,21 @@ import "./App.css";
 import { Card } from "./components/card";
 import type { Person } from "./types/Person";
 import { Navbar } from "./components/Navbar";
+import { useEffect, useState } from "react";
 
 function App() {
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const { data, error, refetch, isLoading } =
     useQuery<{ results: Person[] }>({
       queryKey: ["profileData"],
       queryFn: () =>
         fetch("https://randomuser.me/api/").then((res) => res.json()),
     });
+
+  // add listener for changes in screen width to DOM
+  useEffect(() => {
+    window.matchMedia("(max-width: 640px)").addEventListener('change', event => setIsMobile(event.matches))
+  }, [])
 
   if (isLoading) return <p>Loading...</p>;
   if (error || !data)
@@ -50,12 +57,10 @@ function App() {
       <div className="container">
         <div className="content">
           <div className="picture-display">
-            <Card centered>
-                <img className="rounded" src={profile.picture.large} width={200} height={200} alt="" />
-            </Card>
-            <button onClick={() => refetch()}>Fetch New User</button>
+            <img className="picture" src={profile.picture.large} width={200} height={200} alt="" />
+            {!isMobile && <button className="btn-refetch" onClick={() => refetch()}>Fetch New User</button>}
           </div>
-          <div>
+          <div className="bio">
             <Card width="fixed">
               {fields.map((field) => (
                 <span key={field.title} >
@@ -65,6 +70,7 @@ function App() {
               ))}
             </Card>
           </div>
+          {isMobile && <button className="btn-refetch" onClick={() => refetch()}>Fetch New User</button>}
         </div>
       </div>
     </>

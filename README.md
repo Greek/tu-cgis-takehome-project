@@ -1,6 +1,6 @@
 # Personal Profile Dashboard
 
-A Personal Profile Dashboard built as a take-home project for OTS' CGIS software developer intern position.
+A Personal Profile Dashboard built as a take-home project for TU CGIS software developer intern position.
 
 ## Demo
 

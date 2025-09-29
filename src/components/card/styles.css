@@ -12,10 +12,6 @@
     width: 15em;
   }
 
-  &.centered {
-    justify-items: center;
-  }
-
   h4,
   p {
     margin: 0;

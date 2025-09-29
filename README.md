@@ -1,10 +1,17 @@
-# React + TypeScript + Vite
+# Personal Profile Dashboard
 
-This is a Personal Profile Dashboard built as a take-home project for OTS' CGIS software developer intern position.
+A Personal Profile Dashboard built as a take-home project for OTS' CGIS software developer intern position.
 
 ## Demo
 
 https://github.com/user-attachments/assets/a4afdfb7-a5dc-437f-8e41-3be695dcc36a
+
+## About
+
+This project was built using Vite + React as a minimal base for creating these UI elements.
+
+There are two components: Card and Navbar. These components have their own stylesheets and React files in the `src/components`
+directory. The main home page has its styles inside of `src/App.css`.
 
 ## How to run locally
 

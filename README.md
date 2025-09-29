@@ -4,7 +4,7 @@ A Personal Profile Dashboard built as a take-home project for OTS' CGIS software
 
 ## Demo
 
-https://github.com/user-attachments/assets/a4afdfb7-a5dc-437f-8e41-3be695dcc36a
+https://github.com/user-attachments/assets/94953da9-1b37-4e16-9fc6-8109d51a4707
 
 ## About
 

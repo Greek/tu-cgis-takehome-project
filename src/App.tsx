@@ -60,12 +60,12 @@ function App() {
       value: combinedAddress,
     },
     {
-      title: "Phone Number",
-      value: profile.phone,
-    },
-    {
       title: "Email",
       value: profile.email,
+    },
+    {
+      title: "Phone Number",
+      value: profile.phone,
     },
     {
       title: "Date of Birth",
